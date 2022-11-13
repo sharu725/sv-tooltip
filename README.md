@@ -10,9 +10,9 @@
 </Tooltip>
 ```
 
-### Installation 
+### Installation
 
-``npm i -D sv-tooltip``
+`npm i -D sv-tooltip`
 
 ### Active Tooltip
 
@@ -39,10 +39,19 @@
   </p>
 ```
 
-|  props   |        function         |
-| :------: | :---------------------: |
-|  `top`   |   show tooltip at top   |
-| `right`  |  show tooltip at right  |
-| `bottom` | show tooltip at bottom  |
-|  `left`  |  show tooltip at left   |
-| `active` | show tooltip by default |
+### Colored Tooltip
+
+```svelte
+  <p>
+     <Tooltip tip="It was actially a dream" bottom color="#ffff00">Something</Tooltip>
+  </p>
+```
+
+|  props   |                 function                 |
+| :------: | :--------------------------------------: |
+|  `top`   |           show tooltip at top            |
+| `right`  |          show tooltip at right           |
+| `bottom` |          show tooltip at bottom          |
+|  `left`  |           show tooltip at left           |
+| `active` |         show tooltip by default          |
+| `color`  | hex value to change the color of tooltip |

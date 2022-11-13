@@ -5,13 +5,11 @@
   export let bottom = false;
   export let left = false;
   export let active = false;
-
   export let color = "#0f172a";
 
   const tooltip = (element) => {
     const slot = element.getBoundingClientRect();
-    const tooltip = element.nextElementSibling;
-
+    const tooltip = element.querySelector(".tooltip");
     tooltip.style.setProperty("--tooltip-color", color);
     element.onmouseover = () => {
       tooltip.style.opacity = 1;
@@ -23,23 +21,23 @@
     };
     const elHeight = slot.height;
     const elWidth = slot.width;
-    const { height, width } = tooltip.getBoundingClientRect();
+    const { x, y, height, width } = tooltip.getBoundingClientRect();
     let topGap;
     let rightGap;
     let bottomGap;
     let leftGap;
     if (top) {
-      leftGap = -Math.floor(width / 2 - elWidth / 2);
-      bottomGap = Math.floor(elHeight + 8);
+      leftGap = -(width / 2 - elWidth / 2);
+      bottomGap = elHeight + 12;
     } else if (right) {
-      leftGap = Math.floor(elWidth + 12);
-      bottomGap = -(elHeight / 2 - height / 2);
+      leftGap = elWidth + 12;
+      bottomGap = Math.abs(elHeight / 2 - height / 2);
     } else if (bottom) {
-      leftGap = -Math.floor(width / 2 - elWidth / 2);
-      topGap = Math.floor(elHeight + 8);
+      leftGap = -(width / 2 - elWidth / 2);
+      topGap = elHeight + 12;
     } else if (left) {
-      leftGap = -Math.floor(width + 12);
-      bottomGap = -(elHeight / 2 - height / 2);
+      leftGap = -(width + 12);
+      bottomGap = Math.abs(elHeight / 2 - height / 2);
     } else {
       leftGap = -Math.floor(width / 2 - elWidth / 2);
       topGap = Math.floor(elHeight + 8);
@@ -57,27 +55,27 @@
 <span class="tooltip-wrapper">
   <span class="tooltip-slot" use:tooltip>
     <slot />
+    <div class="tooltip" class:active>
+      {#if tip}
+        <div class="tip" class:top class:right class:bottom class:left>
+          {tip}
+        </div>
+      {:else}
+        <slot name="custom-tip" />
+      {/if}
+    </div>
   </span>
-  <div class="tooltip" class:active>
-    {#if tip}
-      <div class="tip" class:top class:right class:bottom class:left>
-        {tip}
-      </div>
-    {:else}
-      <slot name="custom-tip" />
-    {/if}
-  </div>
 </span>
 
 <style>
-  .tooltip-wrapper {
+  .tooltip-slot {
     position: relative;
   }
   .tooltip {
     position: absolute;
     display: block;
-    opacity: 0;
     white-space: nowrap;
+    opacity: 0;
     z-index: -1;
     background-color: var(--tooltip-color);
   }
@@ -126,5 +124,8 @@
   .tooltip.active {
     opacity: 1;
     visibility: initial;
+  }
+  .tip.removeTipArrow:before {
+    content: none;
   }
 </style>
