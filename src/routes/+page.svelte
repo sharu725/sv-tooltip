@@ -5,7 +5,15 @@
 
 <div class="content">
   <h1>Sv-tooltip</h1>
-  <p>Add tooltips to svelte components.</p>
+  <p>A tooltip utility for svelte components.</p>
+  <p>
+    The package is <a
+      href="https://bundlephobia.com/package/sv-tooltip"
+      target="_blank"
+      rel="nofollow noreferrer noopener">less than 1KB</a
+    >
+  </p>
+  <br />
   <fieldset>
     <legend>Paragraph</legend>
     <p>
@@ -25,9 +33,8 @@
     <legend>Svelte component</legend>
     <Tooltip tip="This is a button" right color="coral">
       <Button
-        >Tooltip with color <br />something more <br />another line <br />more
-        <br />things <br />are <br />possible</Button
-      >
+        >A button <br />can be taller <br />than a normal <br />height
+      </Button>
     </Tooltip>
     <br />
     <br />
