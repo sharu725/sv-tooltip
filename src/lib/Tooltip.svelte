@@ -69,7 +69,7 @@
   <div class="tooltip" class:active>
     {#if tip}
       <div class="tip" class:top class:right class:bottom class:left>
-        {tip}
+        {@html tip}
       </div>
     {:else}
       <slot name="custom-tip" />
