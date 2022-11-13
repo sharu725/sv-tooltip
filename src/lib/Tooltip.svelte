@@ -11,17 +11,23 @@
     const slot = element.getBoundingClientRect();
     const tooltip = element.querySelector(".tooltip");
     tooltip.style.setProperty("--tooltip-color", color);
-    element.onmouseover = () => {
+
+    const showTooltip = () => {
       tooltip.style.opacity = 1;
       tooltip.style.zIndex = "10";
     };
-    element.onmouseout = () => {
+
+    const hideTooltip = () => {
       tooltip.style.opacity = 0;
       tooltip.style.zIndex = "-1";
     };
+
+    element.addEventListener("mouseover", showTooltip);
+    element.addEventListener("mouseout", hideTooltip);
+
     const elHeight = slot.height;
     const elWidth = slot.width;
-    const { x, y, height, width } = tooltip.getBoundingClientRect();
+    const { height, width } = tooltip.getBoundingClientRect();
     let topGap;
     let rightGap;
     let bottomGap;
@@ -44,32 +50,37 @@
       tooltip.style.bottom = "unset";
       tooltip.style.right = "unset";
     }
-
     tooltip.style.top = `${topGap}px`;
     tooltip.style.bottom = `${bottomGap}px`;
     tooltip.style.right = `${rightGap}px`;
     tooltip.style.left = `${leftGap}px`;
+
+    return {
+      destroy() {
+        element.removeEventListener("mouseover", showTooltip);
+        element.removeEventListener("mouseout", hideTooltip);
+      },
+    };
   };
 </script>
 
-<span class="tooltip-wrapper">
-  <span class="tooltip-slot" use:tooltip>
-    <slot />
-    <div class="tooltip" class:active>
-      {#if tip}
-        <div class="tip" class:top class:right class:bottom class:left>
-          {tip}
-        </div>
-      {:else}
-        <slot name="custom-tip" />
-      {/if}
-    </div>
-  </span>
+<span class="tooltip-slot" use:tooltip>
+  <slot />
+  <div class="tooltip" class:active>
+    {#if tip}
+      <div class="tip" class:top class:right class:bottom class:left>
+        {tip}
+      </div>
+    {:else}
+      <slot name="custom-tip" />
+    {/if}
+  </div>
 </span>
 
 <style>
   .tooltip-slot {
     position: relative;
+    display: inline-block;
   }
   .tooltip {
     position: absolute;
@@ -82,9 +93,6 @@
   .tooltip.active {
     opacity: 1;
     z-index: 10;
-  }
-  .tooltip-slot {
-    display: inline-block;
   }
   .tooltip {
     padding-top: 0.25rem;
@@ -124,8 +132,5 @@
   .tooltip.active {
     opacity: 1;
     visibility: initial;
-  }
-  .tip.removeTipArrow:before {
-    content: none;
   }
 </style>
