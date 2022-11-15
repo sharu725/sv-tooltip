@@ -7,9 +7,12 @@
   export let active = false;
   export let color = "#0f172a";
 
+  let arrowTopGap = 0;
+
   const tooltip = (element) => {
     const slot = element.getBoundingClientRect();
     const tooltip = element.querySelector(".tooltip");
+    const tip = element.querySelector(".tip");
     tooltip.style.setProperty("--tooltip-color", color);
 
     const showTooltip = () => {
@@ -38,12 +41,14 @@
     } else if (right) {
       leftGap = elWidth + 12;
       bottomGap = Math.abs(elHeight / 2 - height / 2);
+      arrowTopGap = height / 2;
     } else if (bottom) {
       leftGap = -(width / 2 - elWidth / 2);
       topGap = elHeight + 12;
     } else if (left) {
       leftGap = -(width + 12);
       bottomGap = Math.abs(elHeight / 2 - height / 2);
+      arrowTopGap = height / 2;
     } else {
       leftGap = -Math.floor(width / 2 - elWidth / 2);
       topGap = Math.floor(elHeight + 8);
@@ -54,7 +59,7 @@
     tooltip.style.bottom = `${bottomGap}px`;
     tooltip.style.right = `${rightGap}px`;
     tooltip.style.left = `${leftGap}px`;
-
+    tip.style.setProperty("--top-gap", `${arrowTopGap - 4}px`);
     return {
       destroy() {
         element.removeEventListener("mouseover", showTooltip);
@@ -118,7 +123,8 @@
   }
   .tip.right::before {
     left: -12px;
-    transform: translateY(60%) rotate(270deg);
+    top: var(--top-gap);
+    transform: rotate(270deg);
   }
   .tip.bottom::before {
     left: 50%;
@@ -127,7 +133,8 @@
   }
   .tip.left::before {
     right: -12px;
-    transform: translateY(60%) rotate(90deg);
+    top: var(--top-gap);
+    transform: rotate(90deg);
   }
   .tooltip.active {
     opacity: 1;

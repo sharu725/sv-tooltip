@@ -1,6 +1,6 @@
 {
 	"name": "sv-tooltip",
-	"version": "0.1.2",
+	"version": "0.1.4",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
