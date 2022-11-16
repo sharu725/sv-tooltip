@@ -71,9 +71,9 @@
 
 <span class="tooltip-slot" use:tooltip>
   <slot />
-  <div class="tooltip" class:active>
+  <div class:tooltip={true} class:active {...$$restProps}>
     {#if tip}
-      <div class="tip" class:top class:right class:bottom class:left>
+      <div class:tip={true} class:top class:right class:bottom class:left>
         {@html tip}
       </div>
     {:else}
