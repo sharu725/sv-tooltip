@@ -12,7 +12,9 @@
 
 ### Installation
 
-`npm i -D sv-tooltip`
+```bash
+npm i -D sv-tooltip
+```
 
 ### Active Tooltip
 
