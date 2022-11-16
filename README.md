@@ -34,7 +34,7 @@
 
 ```svelte
   <p>
-    Something <Tooltip tip="It was actially a dream" top><b>wierd</b></Tooltip> happened
+    Something <Tooltip tip="It was actially a dream" top><b>weird</b></Tooltip> happened
     last night
   </p>
 ```
