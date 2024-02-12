@@ -2,20 +2,13 @@
   import Tooltip from "$lib/Tooltip.svelte";
   import Button from "./Button.svelte";
   import Prism from "prismjs";
-  import 'prism-svelte';
+  import "prism-svelte";
   let language = "svelte";
 </script>
 
 <div class="content">
   <h1>Sv-tooltip</h1>
   <p>A tooltip utility for svelte components.</p>
-  <p>
-    The package weighs <a
-      href="https://bundlephobia.com/package/sv-tooltip"
-      target="_blank"
-      rel="nofollow noreferrer noopener">less than 1KB</a
-    >
-  </p>
   <br />
 
   <fieldset>
