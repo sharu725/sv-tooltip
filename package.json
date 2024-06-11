@@ -9,15 +9,15 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.1",
-    "@sveltejs/kit": "^1.30.3",
-    "@sveltejs/package": "^2.2.6",
+    "@sveltejs/kit": "^1.30.4",
+    "@sveltejs/package": "^2.3.1",
     "prism-svelte": "^0.5.0",
     "prismjs": "^1.29.0",
     "sv-tooltip": "^0.1.7",
     "svelte": "^3.59.2",
-    "tslib": "^2.6.2",
+    "tslib": "^2.6.3",
     "typescript": "^4.9.5",
-    "vite": "^4.5.2"
+    "vite": "^4.5.3"
   },
   "type": "module",
   "svelte": "./dist/index.js",
