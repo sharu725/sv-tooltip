@@ -20,6 +20,9 @@ devDependencies:
   prismjs:
     specifier: ^1.29.0
     version: 1.29.0
+  sv-tooltip:
+    specifier: ^0.1.7
+    version: 0.1.7
   svelte:
     specifier: ^3.59.2
     version: 3.59.2
@@ -639,6 +642,10 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /sv-tooltip@0.1.7:
+    resolution: {integrity: sha512-jKYccON++C8rHAACQ1gx+BEcYxv5wPE2ijgts6kLBxbDVgRWUkbO0EK7WOxzRFKq7uT4sxOzSg7fi/UTMNAUzA==}
     dev: true
 
   /svelte-hmr@0.15.3(svelte@3.59.2):
