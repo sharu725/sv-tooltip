@@ -14,7 +14,8 @@
   <fieldset>
     <legend>Paragraph</legend>
     <p>
-      Something <Tooltip tip="It was actially a dream" top><b>wierd</b></Tooltip
+      Something <Tooltip tip="It was actially a dream" top
+        ><strong>wierd</strong></Tooltip
       > happened last night
     </p>
 
@@ -47,7 +48,7 @@
     <legend>Svelte component</legend>
     <Tooltip tip="This is a button" right color="coral">
       <Button
-        >A button <br />can be taller <br />than a normal <br />height
+        >A button <br />can be taller <br />than normal <br />height
       </Button>
     </Tooltip>
     <br />
@@ -116,7 +117,6 @@
     </ul>
   </nav>
 </div>
-
 
 <svelte:head>
   <link

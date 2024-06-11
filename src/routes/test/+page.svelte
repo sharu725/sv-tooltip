@@ -1,10 +1,10 @@
 <script>
-  import Tooltip from "sv-tooltip";
+  import Tooltip from "$lib/Tooltip.svelte";
 </script>
 
 <div class="content">
   <Tooltip tip="offline" top>
-    <div class="material-symbols-outlined"> signal_wifi_bad </div>
+    <div class="material-symbols-outlined">signal_wifi_bad</div>
   </Tooltip>
 </div>
 
@@ -16,7 +16,6 @@
 </svelte:head>
 
 <style>
-  
   .content {
     max-width: 800px;
     margin: 5rem auto;

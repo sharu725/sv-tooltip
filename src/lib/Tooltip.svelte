@@ -9,7 +9,10 @@
 
   let arrowTopGap = 0;
 
-  const tooltip = (element) => {
+  const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  // TODO: Recalculate tooltip position on hover instead of waiting
+  const tooltip = async (element) => {
+    await pause(1000);
     const slot = element.getBoundingClientRect();
     const tooltip = element.querySelector(".tooltip");
     const tip = element.querySelector(".tip");
@@ -60,6 +63,7 @@
     tooltip.style.right = `${rightGap}px`;
     tooltip.style.left = `${leftGap}px`;
     tip.style.setProperty("--top-gap", `${arrowTopGap - 4}px`);
+
     return {
       destroy() {
         element.removeEventListener("mouseover", showTooltip);
@@ -71,15 +75,15 @@
 
 <span class="tooltip-slot" use:tooltip>
   <slot />
-  <div class:tooltip={true} class:active {...$$restProps}>
+  <span class:tooltip={true} class:active {...$$restProps}>
     {#if tip}
-      <div class:tip={true} class:top class:right class:bottom class:left>
+      <span class:tip={true} class:top class:right class:bottom class:left>
         {@html tip}
-      </div>
+      </span>
     {:else}
       <slot name="custom-tip" />
     {/if}
-  </div>
+  </span>
 </span>
 
 <style>
@@ -113,6 +117,7 @@
     position: absolute;
     border: 8px solid transparent;
     border-top: 0;
+    transition-duration: 300ms;
     border-bottom: 8px solid var(--tooltip-color);
     z-index: -1;
   }
