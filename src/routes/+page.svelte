@@ -28,7 +28,7 @@
   </fieldset>
 
   <fieldset>
-    <legend>DOM element</legend>
+    <legend>HTML element</legend>
     <Tooltip tip="This is a button" bottom>
       <button>Hello</button>
     </Tooltip>
