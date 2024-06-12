@@ -64,7 +64,7 @@
         `<Tooltip tip="This is a button" color="coral" right>
   <Button>A button <br />
     can be taller <br />
-    than a normal <br />
+    than normal <br />
     height
   </Button>
 </Tooltip>`,
@@ -100,6 +100,23 @@
       {@html Prism.highlight(
         `<Tooltip tip="This is a button" class="font-bold text-xl" bottom>
   <Button>font-bold text-xl</Button>
+</Tooltip>`,
+        Prism.languages[language]
+      )}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Pass HTML to tip</legend>
+    <Tooltip tip="<marquee>This one moves!</marquee>" top>
+      <Button>A button</Button>
+    </Tooltip>
+    <br />
+    <br />
+    <div class="code">
+      {@html Prism.highlight(
+        `<Tooltip tip="<marquee>This is a button</marquee>" top>
+  <Button>A button</Button>
 </Tooltip>`,
         Prism.languages[language]
       )}
