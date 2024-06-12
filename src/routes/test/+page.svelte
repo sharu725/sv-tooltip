@@ -3,7 +3,7 @@
 </script>
 
 <div class="content">
-  <Tooltip tip="offline" top>
+  <Tooltip tip="offline" right active >
     <div class="material-symbols-outlined">signal_wifi_bad</div>
   </Tooltip>
 </div>

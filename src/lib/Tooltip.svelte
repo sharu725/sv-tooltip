@@ -9,16 +9,13 @@
 
   let arrowTopGap = 0;
 
-  const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  // TODO: Recalculate tooltip position on hover instead of waiting
-  const tooltip = async (element) => {
-    await pause(1000);
-    const slot = element.getBoundingClientRect();
+  const tooltip = (element) => {
     const tooltip = element.querySelector(".tooltip");
     const tip = element.querySelector(".tip");
     tooltip.style.setProperty("--tooltip-color", color);
 
     const showTooltip = () => {
+      // updateTooltipPosition();
       tooltip.style.opacity = 1;
       tooltip.style.zIndex = "10";
     };
@@ -28,46 +25,53 @@
       tooltip.style.zIndex = "-1";
     };
 
+    const updateTooltipPosition = () => {
+      const slot = element.getBoundingClientRect();
+      const elHeight = slot.height;
+      const elWidth = slot.width;
+      const { height, width } = tooltip.getBoundingClientRect();
+      let topGap;
+      let rightGap;
+      let bottomGap;
+      let leftGap;
+      if (top) {
+        leftGap = -(width / 2 - elWidth / 2);
+        bottomGap = elHeight + 12;
+      } else if (right) {
+        leftGap = elWidth + 12;
+        bottomGap = Math.abs(elHeight / 2 - height / 2);
+        arrowTopGap = height / 2;
+      } else if (bottom) {
+        leftGap = -(width / 2 - elWidth / 2);
+        topGap = elHeight + 12;
+      } else if (left) {
+        leftGap = -(width + 12);
+        bottomGap = Math.abs(elHeight / 2 - height / 2);
+        arrowTopGap = height / 2;
+      } else {
+        leftGap = -Math.floor(width / 2 - elWidth / 2);
+        topGap = Math.floor(elHeight + 8);
+        tooltip.style.bottom = "unset";
+        tooltip.style.right = "unset";
+      }
+      tooltip.style.top = `${topGap}px`;
+      tooltip.style.bottom = `${bottomGap}px`;
+      tooltip.style.right = `${rightGap}px`;
+      tooltip.style.left = `${leftGap}px`;
+      tip.style.setProperty("--top-gap", `${arrowTopGap - 4}px`);
+    };
+
+    const resizeObserver = new ResizeObserver(updateTooltipPosition);
+    resizeObserver.observe(element);
+
     element.addEventListener("mouseover", showTooltip);
     element.addEventListener("mouseout", hideTooltip);
-
-    const elHeight = slot.height;
-    const elWidth = slot.width;
-    const { height, width } = tooltip.getBoundingClientRect();
-    let topGap;
-    let rightGap;
-    let bottomGap;
-    let leftGap;
-    if (top) {
-      leftGap = -(width / 2 - elWidth / 2);
-      bottomGap = elHeight + 12;
-    } else if (right) {
-      leftGap = elWidth + 12;
-      bottomGap = Math.abs(elHeight / 2 - height / 2);
-      arrowTopGap = height / 2;
-    } else if (bottom) {
-      leftGap = -(width / 2 - elWidth / 2);
-      topGap = elHeight + 12;
-    } else if (left) {
-      leftGap = -(width + 12);
-      bottomGap = Math.abs(elHeight / 2 - height / 2);
-      arrowTopGap = height / 2;
-    } else {
-      leftGap = -Math.floor(width / 2 - elWidth / 2);
-      topGap = Math.floor(elHeight + 8);
-      tooltip.style.bottom = "unset";
-      tooltip.style.right = "unset";
-    }
-    tooltip.style.top = `${topGap}px`;
-    tooltip.style.bottom = `${bottomGap}px`;
-    tooltip.style.right = `${rightGap}px`;
-    tooltip.style.left = `${leftGap}px`;
-    tip.style.setProperty("--top-gap", `${arrowTopGap - 4}px`);
 
     return {
       destroy() {
         element.removeEventListener("mouseover", showTooltip);
         element.removeEventListener("mouseout", hideTooltip);
+        resizeObserver.unobserve(element);
       },
     };
   };
@@ -127,7 +131,7 @@
     transform: translate(-50%, 100%) rotate(180deg);
   }
   .tip.right::before {
-    left: -12px;
+    left: -11px;
     top: var(--top-gap);
     transform: rotate(270deg);
   }
@@ -137,7 +141,7 @@
     transform: translate(-50%, -100%);
   }
   .tip.left::before {
-    right: -12px;
+    right: -11px;
     top: var(--top-gap);
     transform: rotate(90deg);
   }

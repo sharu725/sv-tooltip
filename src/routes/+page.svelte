@@ -46,7 +46,7 @@
 
   <fieldset>
     <legend>Svelte component</legend>
-    <Tooltip tip="This is a button" right color="coral">
+    <Tooltip tip="This is a button" color="coral" right>
       <Button
         >A button <br />can be taller <br />than normal <br />height
       </Button>
@@ -61,7 +61,7 @@
     <br />
     <div class="code">
       {@html Prism.highlight(
-        `<Tooltip tip="This is a button" right color="coral">
+        `<Tooltip tip="This is a button" color="coral" right>
   <Button>A button <br />
     can be taller <br />
     than a normal <br />
@@ -91,14 +91,14 @@
   </fieldset>
   <fieldset>
     <legend>Pass Tailwind Classes</legend>
-    <Tooltip tip="This is a button" bottom class="font-bold text-xl">
+    <Tooltip tip="This is a button" class="font-bold text-xl" bottom>
       <Button>font-bold text-xl</Button>
     </Tooltip>
     <br />
     <br />
     <div class="code">
       {@html Prism.highlight(
-        `<Tooltip tip="This is a button" bottom class="font-bold text-xl">
+        `<Tooltip tip="This is a button" class="font-bold text-xl" bottom>
   <Button>font-bold text-xl</Button>
 </Tooltip>`,
         Prism.languages[language]
