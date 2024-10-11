@@ -26,31 +26,31 @@
     };
 
     const updateTooltipPosition = () => {
-      const slot = element.getBoundingClientRect();
-      const elHeight = slot.height;
-      const elWidth = slot.width;
-      const { height, width } = tooltip.getBoundingClientRect();
+      const { height: element_hgt, width: element_wdth } =
+        element.getBoundingClientRect();
+      const { height: tip_height, width: tip_width } =
+        tooltip.getBoundingClientRect();
       let topGap;
       let rightGap;
       let bottomGap;
       let leftGap;
       if (top) {
-        leftGap = -(width / 2 - elWidth / 2);
-        bottomGap = elHeight + 12;
+        leftGap = -(tip_width / 2 - element_wdth / 2);
+        bottomGap = element_hgt + 12;
       } else if (right) {
-        leftGap = elWidth + 12;
-        bottomGap = Math.abs(elHeight / 2 - height / 2);
-        arrowTopGap = height / 2;
+        leftGap = element_wdth + 12;
+        bottomGap = Math.abs(element_hgt / 2 - tip_height / 2);
+        arrowTopGap = tip_height / 2;
       } else if (bottom) {
-        leftGap = -(width / 2 - elWidth / 2);
-        topGap = elHeight + 12;
+        leftGap = -(tip_width / 2 - element_wdth / 2);
+        topGap = element_hgt + 12;
       } else if (left) {
-        leftGap = -(width + 12);
-        bottomGap = Math.abs(elHeight / 2 - height / 2);
-        arrowTopGap = height / 2;
+        leftGap = -(tip_width + 12);
+        bottomGap = Math.abs(element_hgt / 2 - tip_height / 2);
+        arrowTopGap = tip_height / 2;
       } else {
-        leftGap = -Math.floor(width / 2 - elWidth / 2);
-        topGap = Math.floor(elHeight + 8);
+        leftGap = -Math.floor(tip_width / 2 - element_wdth / 2);
+        topGap = Math.floor(element_hgt + 8);
         tooltip.style.bottom = "unset";
         tooltip.style.right = "unset";
       }
@@ -101,20 +101,18 @@
     white-space: nowrap;
     opacity: 0;
     z-index: -1;
+    padding: 0.25rem 0.5rem;
     background-color: var(--tooltip-color);
-  }
-  .tooltip.active {
-    opacity: 1;
-    z-index: 10;
-  }
-  .tooltip {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    transition-duration: 300ms;
     color: #ffffff;
     border-radius: 0.25rem;
+    transition:
+      opacity 300ms,
+      z-index 300ms;
+  }
+  .tooltip.active {
+    visibility: initial;
+    opacity: 1;
+    z-index: 10;
   }
   .tip::before {
     content: "";
@@ -144,9 +142,5 @@
     right: -11px;
     top: var(--top-gap);
     transform: rotate(90deg);
-  }
-  .tooltip.active {
-    opacity: 1;
-    visibility: initial;
   }
 </style>

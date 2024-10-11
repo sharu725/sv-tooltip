@@ -3,6 +3,7 @@
   import Button from "./Button.svelte";
   import Prism from "prismjs";
   import "prism-svelte";
+  import { onMount } from "svelte";
   let language = "svelte";
 </script>
 
@@ -14,7 +15,7 @@
   <fieldset>
     <legend>Paragraph</legend>
     <p>
-      Something <Tooltip tip="It was actially a dream" top
+      Something <Tooltip tip="It was actually a dream" top
         ><strong>wierd</strong></Tooltip
       > happened last night
     </p>
