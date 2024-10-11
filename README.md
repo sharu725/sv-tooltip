@@ -36,7 +36,7 @@ npm i -D sv-tooltip
 
 ```svelte
   <p>
-    Something <Tooltip tip="It was actially a dream" top><b>weird</b></Tooltip> happened
+    Something <Tooltip tip="It was actially a dream" top>weird</Tooltip> happened
     last night
   </p>
 ```
@@ -47,6 +47,14 @@ npm i -D sv-tooltip
   <p>
      <Tooltip tip="It was actially a dream" bottom color="#ffff00">Something</Tooltip>
   </p>
+```
+
+### Pass HTML to tip
+
+```svelte
+  <Tooltip tip="<marquee>This one moves!</marquee>" top>
+    <button>A button</button>
+  </Tooltip>
 ```
 
 |  props   |                 function                 |
