@@ -1,0 +1,55 @@
+html,
+body {
+    font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    color: #333;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+strong {
+    font-weight: bold;
+}
+
+fieldset {
+    margin-bottom: 2rem;
+}
+
+legend {
+    font-weight: medium;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 1rem;
+}
+
+.content {
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-xl {
+    font-size: 1.5em;
+}
+
+.code {
+    white-space: pre-wrap;
+    background-color: #eee;
+    padding: 1rem;
+    border-radius: 4px;
+}
