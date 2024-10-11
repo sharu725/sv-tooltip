@@ -15,7 +15,7 @@
     tooltip.style.setProperty("--tooltip-color", color);
 
     const showTooltip = () => {
-      // updateTooltipPosition();
+      updateTooltipPosition();
       tooltip.style.opacity = 1;
       tooltip.style.zIndex = "10";
     };
