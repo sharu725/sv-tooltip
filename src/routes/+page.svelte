@@ -135,4 +135,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css"
     rel="stylesheet"
   />
+  <title>Sv Tooltips</title>
+  <meta name="description" content="A tooltip utility for svelte/sveltekit" />
 </svelte:head>
