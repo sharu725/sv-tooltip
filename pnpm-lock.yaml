@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  svelte:
+    specifier: ^3.59.2
+    version: 3.59.2
+
 devDependencies:
   '@sveltejs/adapter-auto':
     specifier: ^2.1.1
@@ -23,12 +28,9 @@ devDependencies:
   sv-tooltip:
     specifier: ^0.2.3
     version: 0.2.3
-  svelte:
-    specifier: ^3.59.2
-    version: 3.59.2
   tslib:
-    specifier: ^2.8.0
-    version: 2.8.0
+    specifier: ^2.8.1
+    version: 2.8.1
   typescript:
     specifier: ^4.9.5
     version: 4.9.5
@@ -298,7 +300,7 @@ packages:
       sade: 1.8.1
       semver: 7.6.3
       svelte: 3.59.2
-      svelte2tsx: 0.7.22(svelte@3.59.2)(typescript@4.9.5)
+      svelte2tsx: 0.7.24(svelte@3.59.2)(typescript@4.9.5)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -442,7 +444,7 @@ packages:
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: true
 
   /magic-string@0.30.12:
@@ -480,22 +482,22 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: true
 
   /pascal-case@3.1.2:
     resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: true
 
   /picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
     dev: true
 
-  /postcss@8.4.47:
-    resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
+  /postcss@8.4.49:
+    resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.7
@@ -569,8 +571,8 @@ packages:
       svelte: 3.59.2
     dev: true
 
-  /svelte2tsx@0.7.22(svelte@3.59.2)(typescript@4.9.5):
-    resolution: {integrity: sha512-hf55ujq17ufVpDQlJzaQfRr9EjlLIwGmFlpKq4uYrQAQFw/99q1OcVYyBT6568iJySgBUY9PdccURrORmfetmQ==}
+  /svelte2tsx@0.7.24(svelte@3.59.2)(typescript@4.9.5):
+    resolution: {integrity: sha512-KbKD+5aqTYdRPfAroA72xc3kEz3Dj0Vq7X3IjHLWbwfco7pwioEx4x/V9lOpKmkHlYh9YNPkqXWlbrH7Cc580A==}
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
       typescript: ^4.9.4 || ^5.0.0
@@ -584,7 +586,6 @@ packages:
   /svelte@3.59.2:
     resolution: {integrity: sha512-vzSyuGr3eEoAtT/A6bmajosJZIUWySzY2CzB3w2pgPvnkUjGqlDnsNnA0PMO+mMAhuyMul6C2uuZzY6ELSkzyA==}
     engines: {node: '>= 8'}
-    dev: true
 
   /tiny-glob@0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
@@ -598,8 +599,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /tslib@2.8.0:
-    resolution: {integrity: sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA==}
+  /tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
     dev: true
 
   /typescript@4.9.5:
@@ -644,7 +645,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.18.20
-      postcss: 8.4.47
+      postcss: 8.4.49
       rollup: 3.29.5
     optionalDependencies:
       fsevents: 2.3.3

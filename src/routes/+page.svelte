@@ -3,7 +3,7 @@
   import Button from "./Button.svelte";
   import Prism from "prismjs";
   import "prism-svelte";
-  import { onMount } from "svelte";
+
   let language = "svelte";
 </script>
 

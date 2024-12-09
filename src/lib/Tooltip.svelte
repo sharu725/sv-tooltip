@@ -39,14 +39,14 @@
         bottomGap = element_hgt + 12;
       } else if (right) {
         leftGap = element_wdth + 12;
-        bottomGap = Math.abs(element_hgt / 2 - tip_height / 2);
+        bottomGap = element_hgt / 2 - tip_height / 2;
         arrowTopGap = tip_height / 2;
       } else if (bottom) {
         leftGap = -(tip_width / 2 - element_wdth / 2);
         topGap = element_hgt + 12;
       } else if (left) {
         leftGap = -(tip_width + 12);
-        bottomGap = Math.abs(element_hgt / 2 - tip_height / 2);
+        bottomGap = element_hgt / 2 - tip_height / 2;
         arrowTopGap = tip_height / 2;
       } else {
         leftGap = -Math.floor(tip_width / 2 - element_wdth / 2);
